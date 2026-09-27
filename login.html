@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#203a95" />
+    <title>مواصلات | تسجيل الدخول</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: { cairo: ["Cairo", "sans-serif"] },
+            colors: { brand: "#203a95", ink: "#172447" },
+          },
+        },
+      };
+    </script>
+    <style>
+      body { font-family: 'Cairo', sans-serif; background: #f5f7fc; }
+      .login-card {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(20px);
+        box-shadow: 0 20px 40px rgba(32, 58, 149, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+      .input-field {
+        transition: all 0.3s ease;
+      }
+      .input-field:focus-within {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 20px rgba(32, 58, 149, 0.08);
+        border-color: #203a95;
+      }
+    </style>
+  </head>
+  <body class="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-[#f5f7fc] to-[#e6eaf8]">
+    <!-- Background Design Elements -->
+    <div class="absolute -top-40 -right-40 w-96 h-96 bg-brand/10 rounded-full blur-3xl"></div>
+    <div class="absolute -bottom-40 -left-40 w-96 h-96 bg-blue-400/10 rounded-full blur-3xl"></div>
+    
+    <div class="w-full max-w-md p-6 relative z-10">
+      <div class="login-card rounded-3xl p-8 sm:p-10 text-center">
+        <div class="mb-8">
+          <div class="mx-auto w-20 h-20 bg-white rounded-2xl shadow-xl flex items-center justify-center mb-4 overflow-hidden border border-slate-100">
+            <img src="assets/logo.jpeg" alt="مواصلات" class="w-full h-full object-cover" onerror="this.outerHTML='<i data-lucide=\'route\' class=\'w-10 h-10 text-brand\'></i>'" />
+          </div>
+          <h1 class="text-2xl font-extrabold text-ink">مواصلات</h1>
+          <p class="text-sm text-slate-500 mt-2">تسجيل الدخول للوحة التحكم</p>
+        </div>
+        
+        <form onsubmit="event.preventDefault(); localStorage.setItem('mwasalat_logged_in', '1'); window.location.href='overview.html';" class="space-y-5 text-right">
+          <div class="space-y-1">
+            <label class="text-sm font-bold text-slate-700">البريد الإلكتروني</label>
+            <div class="input-field flex items-center bg-[#f8fafc] border border-slate-200 rounded-xl px-4 py-3 focus-within:bg-white focus-within:border-brand">
+              <i data-lucide="mail" class="w-5 h-5 text-slate-400 ml-3"></i>
+              <input type="email" required placeholder="admin@mwasalat.sa" class="bg-transparent w-full outline-none text-sm font-medium" />
+            </div>
+          </div>
+          
+          <div class="space-y-1">
+            <label class="text-sm font-bold text-slate-700">كلمة المرور</label>
+            <div class="input-field flex items-center bg-[#f8fafc] border border-slate-200 rounded-xl px-4 py-3 focus-within:bg-white focus-within:border-brand">
+              <i data-lucide="lock" class="w-5 h-5 text-slate-400 ml-3"></i>
+              <input type="password" required placeholder="••••••••" class="bg-transparent w-full outline-none text-sm font-medium" />
+            </div>
+          </div>
+          
+          <div class="flex items-center justify-between text-sm mt-2">
+            <label class="flex items-center gap-2 cursor-pointer">
+              <input type="checkbox" class="w-4 h-4 rounded text-brand focus:ring-brand accent-brand" checked />
+              <span class="text-slate-600 font-medium">تذكرني</span>
+            </label>
+            <a href="#" class="text-brand font-bold hover:underline">نسيت كلمة المرور؟</a>
+          </div>
+          
+          <button type="submit" class="w-full bg-brand text-white font-bold py-3.5 rounded-xl hover:bg-[#1a2f7a] transition-all transform hover:-translate-y-1 shadow-lg shadow-brand/30 mt-6 flex justify-center items-center gap-2">
+            <span>دخول</span>
+            <i data-lucide="arrow-left" class="w-4 h-4"></i>
+          </button>
+        </form>
+      </div>
+      
+      <p class="text-center text-xs text-slate-400 mt-8 font-medium">
+        جميع الحقوق محفوظة &copy; 2026 مواصلات
+      </p>
+    </div>
+
+    <script>
+      lucide.createIcons();
+    </script>
+  </body>
+</html>
